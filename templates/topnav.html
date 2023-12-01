@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="static/style.css">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<div class="topnav" id="myTopnav">
+      <a class="active" href="home">Home</a>
+      <a href="moje">Moje ryzyka</a>
+    {% if current_user.is_authenticated %}
+        <a class="konto" href="logout">Wyloguj</a>
+    {% else %}
+      <a class="konto" href="login">Zaloguj lub zarejestruj</a>
+    {% endif %}
+      <a class="icon" href="javascript:void(0);" onclick="myFunction()">
+        <i class="bars"></i>
+      </a>
+</div>
+
+<script>
+        function myFunction() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "topnav") {
+            x.className += " responsive";
+          } else {
+            x.className = "topnav";
+          }
+        }
+</script>
+
+{% block content %}{% endblock %}
+</body>
+</html>

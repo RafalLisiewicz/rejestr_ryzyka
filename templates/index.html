@@ -1,0 +1,23 @@
+{% extends "topnav.html" %}
+{% block title %}Rejestr ryzyka{% endblock %}
+{% block content %}
+    {% if current_user.is_authenticated %}
+    <table>
+        <tr>
+            {% for title in titles %}
+                <th>{{ title }}</th>
+            {% endfor %}
+        </tr>
+        {% for risk in risks %}
+            <tr>
+                {% for content in risk %}
+                    <td><a href="{{ risk[0] }}">{{ content }}</a></td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <h1>Nie jestej zalogowany/a</h1>
+    {% endif %}
+
+{% endblock %}

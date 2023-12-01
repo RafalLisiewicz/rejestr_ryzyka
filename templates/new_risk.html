@@ -1,0 +1,29 @@
+{% extends "topnav.html" %}
+{% block title %}Nowe ryzyko{% endblock %}
+{% block content %}
+    <form action="#" method="post">
+        <label for="name"><b>Nazwa:</b></label>
+        <input type="text" placeholder="Podaj nazwę ryzyka" name="name" />
+        <label for="category"><b>Kategoria:</b></label>
+        <input type="text" placeholder="Podaj kategorię" name="category" />
+        <label for="impact"><b>Przewidywany wpływ:</b></label>
+        <input type="text" placeholder="Podaj wartość pieniężną przewidywanego wpływu" name="impact" />
+        <label for="proximity"><b>Prawdopodobieństwo wystąpienia:</b></label>
+        <input type="text" placeholder="Podaj kategorię" name="proximity" />
+        <label for="response"><b>Kategoria odpowiedzi:</b></label>
+        <input type="text" placeholder="Podaj kategorię odpowiedzi" name="response" />
+        <label for="status"><b>Status:</b></label>
+        <select id="status" name="status">
+            <option value="Aktywne">Aktywne</option>
+            <option value="Nieaktywne">Nieaktywne</option>
+        </select>
+        <label for="contact"><b>Nr telefonu do osoby kontaktowej:</b></label>
+        <input type="text" placeholder="Podaj nr telefonu" name="contact" />
+        <label for="opis"><b>Opis ryzyka:</b></label>
+        <input type="text" placeholder="Opisz ryzyko" name="opis" />
+        <div class="btn_holder">
+            <button type="submit">Zapisz</button>
+        </div>
+    </form>
+{% endblock %}
+<!--name, category, impact, proximity, response, status, contact, description--->
