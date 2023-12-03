@@ -1,0 +1,22 @@
+{% extends "topnav.html" %}
+{% block title %}Ryzyko: {{idn}}{% endblock %}
+{% block content %}
+    <h2>Ryzyko: {{ idn }}</h2>
+    <div class="scrollable">
+    <table>
+        {% for piece in data %}
+        <tr>
+            <th>{{ piece[0] }}</th>
+            <td>{{ piece[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    {% if current_user.name == data[1][1] %}
+    <form action="#" method="post">
+    <button class="remove_risk" type="submit" value="yes" name="remove_risk">
+      Usuń to ryzyko
+    </button>
+    </form>
+    {% endif %}
+{% endblock %}

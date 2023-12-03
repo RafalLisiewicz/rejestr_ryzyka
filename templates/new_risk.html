@@ -2,28 +2,40 @@
 {% block title %}Nowe ryzyko{% endblock %}
 {% block content %}
     <form action="#" method="post">
-        <label for="name"><b>Nazwa:</b></label>
-        <input type="text" placeholder="Podaj nazwę ryzyka" name="name" />
         <label for="category"><b>Kategoria:</b></label>
-        <input type="text" placeholder="Podaj kategorię" name="category" />
-        <label for="impact"><b>Przewidywany wpływ:</b></label>
-        <input type="text" placeholder="Podaj wartość pieniężną przewidywanego wpływu" name="impact" />
+        <select id="category" name="category">
+            <option value="Produkt">Produkt</option>
+            <option value="Zamawianie">Zamawianie</option>
+            <option value="Wysyłka">Wysyłka</option>
+            <option value="Inne">Inne</option>
+        </select>
+        <label for="impact"><b>Przewidywany wpływ [$]:</b></label>
+        <input type="number" placeholder="Podaj wartość pieniężną przewidywanego wpływu" name="impact" required/>
         <label for="proximity"><b>Prawdopodobieństwo wystąpienia:</b></label>
-        <input type="text" placeholder="Podaj kategorię" name="proximity" />
+        <select id="proximity" name="proximity">
+            <option value="Duże">Duże</option>
+            <option value="Średnie">Średnie</option>
+            <option value="Małe">Małe</option>
+        </select>
         <label for="response"><b>Kategoria odpowiedzi:</b></label>
-        <input type="text" placeholder="Podaj kategorię odpowiedzi" name="response" />
+        <select id="response" name="response">
+            <option value="Redukcja skutków">Redukcja skutków</option>
+            <option value="Wyłączenie serwerów">Wyłączenie serwerów</option>
+            <option value="Wezwanie służb">Wezwanie służb</option>
+        </select>
         <label for="status"><b>Status:</b></label>
         <select id="status" name="status">
             <option value="Aktywne">Aktywne</option>
             <option value="Nieaktywne">Nieaktywne</option>
         </select>
         <label for="contact"><b>Nr telefonu do osoby kontaktowej:</b></label>
-        <input type="text" placeholder="Podaj nr telefonu" name="contact" />
-        <label for="opis"><b>Opis ryzyka:</b></label>
-        <input type="text" placeholder="Opisz ryzyko" name="opis" />
+        <input type="tel" placeholder="Podaj nr telefonu (xxx-xxx-xxx)" name="contact" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+               oninvalid="this.setCustomValidity('Podaj nr w dobrym formacie formacie np. 123-123-123')"
+               oninput="this.setCustomValidity('')" required/>
+        <label for="description"><b>Opis ryzyka:</b></label>
+        <input type="text" placeholder="Opisz ryzyko" name="description" required/>
         <div class="btn_holder">
             <button type="submit">Zapisz</button>
         </div>
     </form>
 {% endblock %}
-<!--name, category, impact, proximity, response, status, contact, description--->

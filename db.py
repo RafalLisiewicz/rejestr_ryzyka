@@ -32,13 +32,16 @@ def get_user_login(username):
     conn = get_db_connection()
     user = conn.execute('SELECT * FROM PERSON WHERE login= "%s"' % username).fetchall()
     conn.close()
+    if not user:
+        return user
     user_wrap = User(user[0][0], user[0][1], user[0][2], user[0][3])
     return user_wrap
 
 
 def add_user(name, login, password):
     conn = get_db_connection()
-    conn.execute(f'INSERT INTO person (NAME, LOGIN, PASSWORD) VALUES ({name}, {login}, {password})')
+    conn.execute(f'INSERT INTO person (NAME, LOGIN, PASSWORD) VALUES ("{name}", "{login}", "{password}")')
+    conn.commit()
     conn.close()
     return 1
 
@@ -70,5 +73,19 @@ def get_risk(idn):
     return risk_data[0]
 
 
-def add_risk():
+def add_risk(owner_id, category, impact, proximity, response, status, contact, description):
+    conn = get_db_connection()
+    conn.execute(f'INSERT INTO risk '
+                 f'(owner_id, category, impact, proximity, response, status, contact, description) VAlUES '
+                 f'({owner_id}, "{category}", {impact}, "{proximity}", "{response}", "{status}", "{contact}", "{description}") ')
+    conn.commit()
+    conn.close()
+    return 1
+
+
+def remove_risk(idn):
+    conn = get_db_connection()
+    conn.execute(f'DELETE FROM risk WHERE id = '+str(idn))
+    conn.commit()
+    conn.close()
     return 1

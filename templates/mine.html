@@ -1,8 +1,12 @@
 {% extends "topnav.html" %}
-{% block title %}Rejestr ryzyka{% endblock %}
+{% block title %}Moje ryzyka{% endblock %}
 {% block content %}
     {% if current_user.is_authenticated %}
-        <h2>{{ current_user.name}}</h2>
+    <h2>{{ current_user.name }}</h2>
+    <h3>Moje</h3>
+    <button class="add_risk" onclick="window.location.href='nowe';">
+      Dodaj nowe ryzyko
+    </button>
         <div class="scrollable">
     <table>
         <tr>
@@ -20,7 +24,6 @@
     </table>
         </div>
     {% else %}
-    <h1>Nie jesteś zalogowany/a</h1>
+        <h1>Nie jesteś zalogowany/a</h1>
     {% endif %}
-
 {% endblock %}

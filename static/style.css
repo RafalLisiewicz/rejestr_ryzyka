@@ -19,7 +19,7 @@
   color: white;
 }
 
-.topnav a.konto {
+.topnav a.account {
   float: right;
   background-color: #04AA6D;
   color: white;
@@ -55,17 +55,22 @@
     display: block;
     text-align: left;
   }
-  .topnav.responsive a.konto {
+  .topnav.responsive a.account {
     background-color: #333;
   }
-  .topnav.responsive a.konto:hover {
+  .topnav.responsive a.account:hover {
     background-color: #ddd;
   }
 }
 
-.bars:before{content:"\images\a"}
+.bars:before{content:"..."}
 
 /*-------------------------------------------------------table-------------------------------------------------------*/
+.scrollable{
+  width: 100%;
+  overflow-x: auto;
+}
+
 table{
   margin-left: auto;
   margin-right: auto;
@@ -103,6 +108,12 @@ h2 {
   color: #04AA6D;
   font-family: "Monaco", "Lucida Console", monospace;
   font-size: xxx-large;
+}
+h3 {
+  text-align: center;
+  color: #04AA6D;
+  font-family: "Monaco", "Lucida Console", monospace;
+  font-size: xx-large;
 }
 
 button {
@@ -155,4 +166,27 @@ input {
   color: white;
   font-size: xx-large;
   text-decoration: none;
+}
+
+.add_risk {
+  float: right;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 2%;
+  width: 150px;
+}
+
+.remove_risk {
+  background-color: darkred;
+  float: right;
+  border: none;
+  cursor: pointer;
+  margin-top: 2%;
+  width: 150px;
+}
+
+select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
 }
