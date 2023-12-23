@@ -3,16 +3,17 @@
 {% block content %}
     <h1>Zarejestruj się</h1>
     <form action="#" method="post">
-      <label for="name"><b>Imię:</b></label>
-      <input type="text" placeholder="Podaj imię" name="name" />
-      <label for="surname"><b>Nazwisko:</b></label>
-      <input type="text" placeholder="Podaj nazwisko" name="surname" />
-      <label for="username"><b>Login:</b></label>
-      <input type="text" placeholder="Podaj login" name="username" />
-      <label for="password"><b>Hasło:</b></label>
-      <input type="password" placeholder="Podaj hasło" name="password" />
+        <label for="name"><b>Imię:</b></label>
+        <input type="text" placeholder="Podaj imię" name="name"/>
+        <label for="surname"><b>Nazwisko:</b></label>
+        <input type="text" placeholder="Podaj nazwisko" name="surname"/>
+        <label for="username"><b>Login:</b></label>
+        <input type="text" placeholder="Podaj login" name="username" oninvalid="this.setCustomValidity('aaaa')"
+               oninput="this.setCustomValidity('')" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required/>
+        <label for="password"><b>Hasło:</b></label>
+        <input type="password" placeholder="Podaj hasło" name="password"/>
         <div class="btn_holder">
-      <button type="submit">Zarejestruj</button>
+            <button type="submit">Zarejestruj</button>
         </div>
     </form>
     <div class="link_holder">

@@ -29,12 +29,13 @@
             <option value="Nieaktywne">Nieaktywne</option>
         </select>
         <label for="contact"><b>Nr telefonu do osoby kontaktowej:</b></label>
-        <input type="tel" placeholder="Podaj nr telefonu (xxx-xxx-xxx)" name="contact" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+        <input type="tel" placeholder="Podaj nr telefonu (xxx-xxx-xxx)" name="contact"
+               pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
                oninvalid="this.setCustomValidity('Podaj nr w dobrym formacie formacie np. 123-123-123')"
                oninput="this.setCustomValidity('')" required/>
         <label for="description"><b>Opis ryzyka:</b></label>
         <input type="text" placeholder="Opisz ryzyko" name="description" required/>
-        <div class="btn_holder">
+        <div class="btn_holder2">
             <button type="submit">Zapisz</button>
         </div>
     </form>

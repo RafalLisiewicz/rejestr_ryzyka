@@ -2,26 +2,26 @@
 {% block title %}Moje ryzyka{% endblock %}
 {% block content %}
     {% if current_user.is_authenticated %}
-    <h2>{{ current_user.name }}</h2>
-    <h3>Moje</h3>
-    <button class="add_risk" onclick="window.location.href='nowe';">
-      Dodaj nowe ryzyko
-    </button>
+        <h2>{{ current_user.name }}</h2>
+        <h3>Moje</h3>
+        <button class="add_risk" onclick="window.location.href='nowe';">
+            Dodaj nowe ryzyko
+        </button>
         <div class="scrollable">
-    <table>
-        <tr>
-            {% for title in titles %}
-                <th>{{ title }}</th>
-            {% endfor %}
-        </tr>
-        {% for risk in risks %}
-            <tr>
-                {% for content in risk %}
-                    <td onclick="window.location='{{ risk[0] }}'">{{ content }}</td>
+            <table>
+                <tr>
+                    {% for title in titles %}
+                        <th>{{ title }}</th>
+                    {% endfor %}
+                </tr>
+                {% for risk in risks %}
+                    <tr>
+                        {% for content in risk %}
+                            <td onclick="window.location='{{ risk[0] }}'">{{ content }}</td>
+                        {% endfor %}
+                    </tr>
                 {% endfor %}
-            </tr>
-        {% endfor %}
-    </table>
+            </table>
         </div>
     {% else %}
         <h1>Nie jesteś zalogowany/a</h1>

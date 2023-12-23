@@ -2,25 +2,29 @@
 {% block title %}Rejestr ryzyka{% endblock %}
 {% block content %}
     {% if current_user.is_authenticated %}
-        <h2>{{ current_user.name}}</h2>
+        <h2>{{ current_user.name }}</h2>
         <div class="scrollable">
-    <table>
-        <tr>
-            {% for title in titles %}
-                <th>{{ title }}</th>
-            {% endfor %}
-        </tr>
-        {% for risk in risks %}
-            <tr>
-                {% for content in risk %}
-                    <td onclick="window.location='{{ risk[0] }}'">{{ content }}</td>
+            <table>
+                <tr>
+                    {% for title in titles %}
+                        <th>{{ title }}</th>
+                    {% endfor %}
+                </tr>
+                {% for risk in risks %}
+                    <tr>
+                        {% for content in risk %}
+                            <td onclick="window.location='{{ risk[0] }}'">{{ content }}</td>
+                        {% endfor %}
+                    </tr>
                 {% endfor %}
-            </tr>
-        {% endfor %}
-    </table>
+            </table>
+            <div class="link_holder">
+                <a href="https://uodo.gov.pl/404" target="_blank">Dowiedz się więcej o rozporządzeniu o ochronie danych
+                    osobowych (RODO).</a>
+            </div>
         </div>
     {% else %}
-    <h1>Nie jesteś zalogowany/a</h1>
+        <h1>Nie jesteś zalogowany/a</h1>
     {% endif %}
 
 {% endblock %}

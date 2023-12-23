@@ -8,6 +8,7 @@ class User(UserMixin):
         self.name = name
         self.login = login
         self.password = password
+
     id = -1
     name = ""
     login = ""
@@ -22,7 +23,7 @@ def get_db_connection():
 
 def get_user(idn):
     conn = get_db_connection()
-    user = conn.execute('SELECT * FROM PERSON WHERE id='+str(idn)).fetchall()
+    user = conn.execute('SELECT * FROM PERSON WHERE id=' + str(idn)).fetchall()
     conn.close()
     user_wrap = User(user[0][0], user[0][1], user[0][2], user[0][3])
     return user_wrap
@@ -85,7 +86,7 @@ def add_risk(owner_id, category, impact, proximity, response, status, contact, d
 
 def remove_risk(idn):
     conn = get_db_connection()
-    conn.execute(f'DELETE FROM risk WHERE id = '+str(idn))
+    conn.execute(f'DELETE FROM risk WHERE id = ' + str(idn))
     conn.commit()
     conn.close()
     return 1
